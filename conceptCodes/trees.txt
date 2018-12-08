@@ -1,0 +1,25 @@
+LCA BST and BT
+1.LCA:Least Common Ancestor
+	Can be used for finding the distance b/w two nodes
+	Code in concept codes folder
+2.Level order traversal:
+	Use queue
+
+3.Note: Inorder traversal gives output in increasing order
+
+3.AVL
+4.Red Black Tree
+In notes(only theory is sufficient)
+
+5.Diameter of BT
+6.Diameter of N-Ary Tree
+
+
+5.Insertion in a tree level order BT
+6.find height of tree
+7.check if a given array represent preorder traversal
+8.construct tree from preorder and inorder
+9.dist b/w two nodes of BT
+10.diameter of BT
+11.binary index tree
+12.segment tree
