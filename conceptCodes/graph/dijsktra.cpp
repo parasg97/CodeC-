@@ -1,5 +1,11 @@
 //https://www.hackerrank.com/challenges/dijkstrashortreach/problem
 
+/*
+*	The graph is bidirectional
+*	Nodes can have multiple edges i.e. between any 2 nodes there can be more than 1 edge
+*/
+
+
 #include <bits/stdc++.h>
 
 using namespace std;
