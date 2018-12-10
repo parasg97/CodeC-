@@ -1,0 +1,59 @@
+1.Traversal :
+	BFS,DFs
+	To find if you can reach fro one node to another use dfs/bfs.
+	To find the shortest distance problem on a unweighted graph use BFS.
+	To find the number of connected components use DFS/BFs
+
+2.Minimum spanning tree: (Spanning Tree): A tree which contains all the nodes of the graph and the edges are tree are also the edges of graph.
+			 (MST): has sum of weight minimum. MST is not unique.
+
+	Kruskal’s Algorithm
+	Kruskal’s Algorithm builds the spanning tree by adding edges one by one into a growing spanning tree.
+	Kruskal's algorithm follows greedy approach as in each iteration it finds an edge which has least weight and add it to the growing spanning tree.
+
+	Algorithm Steps:
+
+	1.Sort the graph edges with respect to their weights.
+	2.Start adding edges to the MST from the edge with the smallest weight until the edge of the largest weight.
+	3.Only add edges which doesn't form a cycle , edges which connect only disconnected components.
+
+	How to check if 2 vertices are connected or not ?
+
+ 	Use disjoint set data structure. If the parent(subset) of the two nodes of the edge in question is same then the edge will form a cycle.
+
+3. Shortest Path algos:
+
+	A.Dijsktra's Algo (Used to find the shortest distance between source node and all other nodes)
+
+	Algorithm Steps:
+
+	1.Set all vertices distances = infinity except for the source vertex, set the source distance = 0.
+	2.Push the source vertex in a min-priority queue in the form (distance , vertex), 
+	as the comparison in the min-priority queue will be according to vertices distances.
+	3.Pop the vertex with the minimum distance from the priority queue (at first the popped vertex = source).
+	4.Update the distances of the connected vertices to the popped vertex in case of "current vertex distance + edge weight < next vertex distance",
+ 	and if the vertex is not visited mark it as visited and push it in the queue.
+	5. If the vertex updated in step 4 is already in queue. Remove it first and then again insert it with updated distance.
+	6.Apply the same algorithm again until the priority queue is empty.
+
+	
+	B.Floyd Warshall(To find the sortest dist b/w all pairs)
+	
+	Pseudo code:
+
+	for(int k = 1; k <= n; k++){
+    		for(int i = 1; i <= n; i++){
+        		for(int j = 1; j <= n; j++){
+            			dist[i][j] = min( dist[i][j], dist[i][k] + dist[k][j] );
+       			}
+    		}
+	}
+	
+	Complexity O(n^3)
+
+4.
+
+
+
+
+
