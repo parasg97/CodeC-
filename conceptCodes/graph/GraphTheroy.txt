@@ -51,7 +51,16 @@
 	
 	Complexity O(n^3)
 
-4.
+4. Articulation point and bridges:
+	Given a DFS tree of a graph, a Back Edge is an edge that connects a vertex to a vertex that
+	is discovered before it's parent.(i.e. connect to an ancestor).
+	Presence of a back edge means presence of an alternative path in case the parent of the 
+	vertex is removed.
+
+	Bridges:
+	An edge in a graph between vertices say  and  is called a Bridge,
+	if after removing it, there will be no path left between u and v.
+	It's definition is very similar to that of Articulation Points.
 
 
 

@@ -14,7 +14,7 @@ int giveAns(std::vector<int> v){
 	for(int i=1;i<v.size();i++){
 		for (int j = 0; j < i; ++j)
 		{
-			if(v[j]<=v[i]){
+			if(v[j]<=v[i] and res[i]<res[j]+1){
 				res[i]=res[j]+1;
 			}
 		}
