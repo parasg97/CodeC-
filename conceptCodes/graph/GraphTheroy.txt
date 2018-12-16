@@ -57,6 +57,8 @@
 	Presence of a back edge means presence of an alternative path in case the parent of the 
 	vertex is removed.
 
+	https://www.youtube.com/watch?v=jFZsDDB0-vo&t=58s
+
 	Bridges:
 	An edge in a graph between vertices say  and  is called a Bridge,
 	if after removing it, there will be no path left between u and v.
