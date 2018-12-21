@@ -32,7 +32,7 @@ void swap(std::vector<int> &arr,int i1,int i2){
 	arr[i2]=temp;
 }
 
-void permutationArray(vector<int> &arr,int start,int sizeFixed){
+void permutationArray(vector<int> arr,int start,int sizeFixed){
 	if(sizeFixed==arr.size()){
 		printArray(arr);
 	}else{
@@ -41,7 +41,7 @@ void permutationArray(vector<int> &arr,int start,int sizeFixed){
 		for(int i=start;i<arr.size();i++){
 			swap(arr,start,i);
 			permutationArray(arr,start,sizeFixed);
-			swap(arr,start,i);
+			//swap(arr,start,i);
 		}
 	}
 }

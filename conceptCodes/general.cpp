@@ -8,6 +8,7 @@ int giveAscii(char c){
 
 int charToInt(char c){
     return ((int)c-'0');
+    //return ((int)c-'a');//to get alphabets in range 0-25
 }
 
 
