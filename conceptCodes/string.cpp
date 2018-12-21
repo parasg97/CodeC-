@@ -10,6 +10,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	string A;
+	long long a=stoll("1234584597");
+	cout<<a+1;
 	
 }
