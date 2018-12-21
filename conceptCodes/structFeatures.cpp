@@ -53,11 +53,15 @@ int main(int argc, char const *argv[])
 	Record record3;
 	record3.name="surabhi";
 	cout<<record3.name<<endl;
-	
+	delete(record1);
+	delete(record2);
+
 	vector<box> v;
+	int temp=10;
 	for (int i = 0; i < 10; ++i)
 	{
-		box b(i);
+		box b(temp);
+		temp--;
 		v.push_back(b);
 
 	}

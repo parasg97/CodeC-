@@ -6,9 +6,10 @@ using namespace std;
 // Function to print given set
 void printSet(vector<int> const &set)
 {
-	for (int j : set)
-		cout << setw(2) << j;
-	cout << endl;
+	for(int i=0;i<set.size();i++){
+	    cout<<set[i]<<" ";
+	}
+	cout<<endl;
 }
 
 // Function to generate power set of given set S
