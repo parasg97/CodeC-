@@ -6,16 +6,13 @@ static vector<int> tree(100000);
 static int arrSize; 
 
 void buildSegTree(int arr[], int node ,int left, int right){
-	if(left == right){
-		tree[node] = arr[left];
+	if(left==right){
+	    tree[node]=arr[left];
 	}else{
-		int mid = (left + right)/2;
-		buildSegTree(arr,2*node,left,mid);
-		buildSegTree(arr,(2*node)+1,mid+1,right);
-		//for min
-		tree[node] = min(tree[2*node],tree[2*node+1]);
-		//for sum
-		//tree[node] = tree[2*node] + tree[2*node+1];
+	    int mid=(left+right)/2;
+	    buildSegTree(arr,2*node,left,mid);
+	    buildSegTree(arr,2*node+1,mid+1,right);
+	    tree[node]=tree[2*node]+tree[2*node+1];
 	}
 
 
@@ -32,7 +29,7 @@ void updateTree(std::vector<int> tree,int index,int val,int node,int left,int ri
 			}else if((mid+1)<=index && right>=index){
 				updateTree(tree,index,val,2*node+1,mid+1,right);
 			}
-			tree[node] = min(tree[2*node],tree[2*node+1]);
+			tree[node] = tree[2*node]+tree[2*node+1];
 		}else{
 			return;
 		}
@@ -40,21 +37,18 @@ void updateTree(std::vector<int> tree,int index,int val,int node,int left,int ri
 }
 
 int queryTree(std::vector<int> tree,int node,int leftT,int rightT,int rangeL,int rangeR){
-	if(rangeL<leftT || rangeR>rightT){
-		return -1;
-	}else if(){
-
+	if(leftT==rangeL and rightT==rangeR){
+	    return tree[node];
 	}
-	if(l <= start and end <= r)
-    {
-        // range represented by a node is completely inside the given range
-        return tree[node];
-    }
-    // range represented by a node is partially inside and partially outside the given range
-    int mid = (start + end) / 2;
-    int p1 = query(2*node, start, mid, l, r);
-    int p2 = query(2*node+1, mid+1, end, l, r);
-    return (p1 + p2);
+	else if(rangeR<leftT || rangeL>rightT){
+	    return 0;
+	}
+	else{
+	    int mid=(leftT+rightT)/2;
+	    int a1=queryTree(tree,2*node,leftT,mid,rangeL,min(mid,rangeR));
+	    int a2=queryTree(tree,(2*node)+1,mid+1,rightT,max(mid+1,rangeL),rangeR);
+	    return a1+a2;
+	}
 }
 
 
@@ -72,11 +66,12 @@ int main(int argc, char const *argv[])
 	}
 	cout<<endl;
 	//updateTree(std::vector<int> tree,int index,int val,int node,int left,int right)
-	updateTree(tree,2,6,1,0,3);
-	for (int i = 1; i <= treeSize; ++i)
+	//updateTree(tree,2,6,1,0,3);
+	/*for (int i = 1; i <= treeSize; ++i)
 	{
 		cout<<tree[i]<<" ";
 	}
-	cout<<endl;
+	cout<<endl;*/
+	cout<<queryTree(tree,1,0,arrSize-1,1,3)<<endl;
 
 }
