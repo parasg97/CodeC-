@@ -16,6 +16,9 @@ int findParent(int a){
 void doUnion(int a,int b){
 	int p1=findParent(a);
 	int p2=findParent(b);
+	if(p1==p2){
+		return;
+	}
 	if(size[p1]>size[p2]){
 		g[p2]=p1;
 		size[p1]+=size[p2];
