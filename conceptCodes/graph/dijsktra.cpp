@@ -5,6 +5,14 @@
 *	Nodes can have multiple edges i.e. between any 2 nodes there can be more than 1 edge
 */
 
+//https://www.hackerrank.com/challenges/dijkstrashortreach/problem
+
+/*
+*	The graph is bidirectional
+*	Nodes can have multiple edges i.e. between any 2 nodes there can be more than 1 edge
+*/
+
+//https://www.hackerearth.com/practice/algorithms/graphs/shortest-path-algorithms/tutorial/
 
 #include <bits/stdc++.h>
 
@@ -12,26 +20,20 @@ using namespace std;
 
 unordered_map<int,vector<pair<int,int>>> g;//node.. neighbours/weight
 unordered_set<int> visited;
-multimap<int,int> pq;//current dist from root/node
+set<pair<int,int>> pq;//current dist from root/node
 
 int main(){
-    int t;
-    cin>>t;
-    while(t>0){
-        g.clear();
-        visited.clear();
-        pq.clear();
         int n, m;
-        cin >> n >> m;
+        scanf("%d%d",&n,&m);
         for (int i = 0; i < m; i++) {
           int u, v, w;
-          cin >> u >> v >> w;
+          scanf("%d%d%d",&u,&v,&w);
           g[u].push_back({v,w});
-          g[v].push_back({u, w});
+          //g[v].push_back({u, w});
         }
         vector<int> res(n + 1, -1);
         int s;
-        cin >> s;
+        s=1;
         res[s] = 0;
         visited.insert(s);
         pq.insert({0, s});
@@ -44,13 +46,12 @@ int main(){
             int w = child[i].second;
             if (res[c]==-1 || res[node] + w < res[c]) {
             //update the priority queue
-              for (auto itr = pq.begin(); itr != pq.end(); itr++) {
-                if (itr->second == c) {
-                  pq.erase(itr);
-                  pq.insert({res[node] + w, c});
-                  break;
+                auto itr = pq.find({res[c],c});
+                if(itr!=pq.end()){
+                    pq.erase(itr);
+                    pq.insert({res[node] + w, c});
                 }
-              }
+            
               //update the result vector
               res[c] = res[node] + w;
             }
@@ -61,14 +62,17 @@ int main(){
           }
         }
        
-        for(int i=1;i<=n;i++){
-            if(s==i){
-                continue;
+        for(int i=2;i<=n;i++){
+//cout<<"SDsd"<<endl;
+            if(res[i]==-1){
+                printf("%ll ",pow(10,9));
+            }else{
+                
+             printf("%d ",res[i]);
             }
-            cout<<res[i]<<" ";
         }
         cout<<endl;
-        t--;
-    }
+        
+    
 }
 
