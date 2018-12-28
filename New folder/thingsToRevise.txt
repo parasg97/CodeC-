@@ -1,0 +1,6 @@
+JAVA:
+Static- var,function,class
+Final- var,function,class
+Multithreading functions
+...
+Nucleus java web notes
