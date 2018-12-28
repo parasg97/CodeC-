@@ -97,6 +97,9 @@ int main(int argc, char const *argv[])
 	}
 	cout<<endl;
 
+	//inserting multiple elements
+	v.insert(v.end(),v2.begin(),v2.end());
+
 	
 
 	//remove a single ele
